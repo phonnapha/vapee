@@ -118,38 +118,7 @@ class _TicketPageState extends State<Ticket> {
         
         bottomNavigationBar: BottomAppBar(
           child:
-             CustomNavigationBar(
-        elevation: 0.0,
-        iconSize: 30.0,
-        selectedColor: Color(0xff625aff),
-        strokeColor: Color(0xff625aff),
-        unSelectedColor: Colors.white,
-        backgroundColor: Color(0xffa9a5f2),
-        items: [
-          CustomNavigationBarItem(
-            icon: Icons.home,
-            selectedTitle: 'home'
-          ),
-          CustomNavigationBarItem(
-            icon: Icons.shopping_cart,
-          ),
-          CustomNavigationBarItem(
-            icon: Icons.lightbulb_outline,
-          ),
-          CustomNavigationBarItem(
-            icon: Icons.search,
-          ),
-          CustomNavigationBarItem(
-            icon: Icons.account_circle,
-          ),
-        ],
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
+           
           ),
         
         );
