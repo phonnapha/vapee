@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vapee/register.dart';
+import 'package:vapee/views/register_page.dart';
 import 'package:vapee/static/customstyle.dart';
-import 'package:vapee/ticket.dart';
+import 'package:vapee/views/ticket_info_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _LoginFormState extends State<LoginPage> {
   final idcontroller = TextEditingController();
   final passcontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool _loading = false;
 
@@ -21,9 +21,9 @@ class _LoginFormState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      
+
       // backgroundColor: Colors.yellow[300],
-     
+
       body: Stack(
         children: <Widget>[
           Container(
@@ -47,32 +47,34 @@ class _LoginFormState extends State<LoginPage> {
                           child: Form(
                             key: _formKey,
                             child: Column(children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.only(right: 200.0),
-                                  child: Text(
-                                    "Username :",
-                                    style: TextStyle(
-                                        color: Colors.blue[500],
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.bold),
-                                  )),
-                              SizedBox(height: 5.0),
+                              // Padding(
+                              //   padding: EdgeInsets.only(right: 200.0),
+                              //   child: Text(
+                              //     "Username :",
+                              //     style: TextStyle(
+                              //       color: Colors.blue[500],
+                              //       fontSize: 11.0,
+                              //       fontWeight: FontWeight.bold,
+                              //     ),
+                              //   ),
+                              // ),
+                              // SizedBox(height: 5.0),
                               TextFormField(
                                 decoration: InputDecoration(
                                   fillColor: Colors.white,
                                   hoverColor: Colors.white,
                                   hintText: 'Username',
                                   hintStyle: TextStyle(fontSize: 11.0),
-
-                                  //     labelText: 'Username',
                                   border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.red[900],
-                                      ),
-                                      borderRadius:
-                                          BorderRadius.circular(10.0)),
-                                  contentPadding: new EdgeInsets.symmetric(
-                                      vertical: 5.0, horizontal: 15.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.red[900],
+                                    ),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 5.0,
+                                    horizontal: 15.0,
+                                  ),
                                 ),
                                 autocorrect: false,
                                 autovalidate: false,
@@ -90,16 +92,16 @@ class _LoginFormState extends State<LoginPage> {
                               SizedBox(
                                 height: 20.0,
                               ),
-                              Padding(
-                                  padding: EdgeInsets.only(right: 200.0),
-                                  child: Text(
-                                    'Password :',
-                                    style: TextStyle(
-                                        color: Colors.blue[500],
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.bold),
-                                  )),
-                              SizedBox(height: 5.0),
+                              // Padding(
+                              //     padding: EdgeInsets.only(right: 200.0),
+                              //     child: Text(
+                              //       'Password :',
+                              //       style: TextStyle(
+                              //           color: Colors.blue[500],
+                              //           fontSize: 11.0,
+                              //           fontWeight: FontWeight.bold),
+                              //     )),
+                              // SizedBox(height: 5.0),
                               TextFormField(
                                   focusNode: focus,
                                   decoration: InputDecoration(
@@ -109,7 +111,7 @@ class _LoginFormState extends State<LoginPage> {
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(10.0)),
-                                    contentPadding: new EdgeInsets.symmetric(
+                                    contentPadding: EdgeInsets.symmetric(
                                         vertical: 5.0, horizontal: 15.0),
                                   ),
                                   autocorrect: false,
@@ -165,27 +167,27 @@ class _LoginFormState extends State<LoginPage> {
     );
   }
 
-  var bodyProgress = new Container(
-    child: new Stack(
+  var bodyProgress = Container(
+    child: Stack(
       children: <Widget>[
-        new Container(
+        Container(
           alignment: AlignmentDirectional.center,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.white70,
           ),
-          child: new Container(
-            decoration: new BoxDecoration(
+          child: Container(
+            decoration: BoxDecoration(
                 color: Colors.purpleAccent[100],
-                borderRadius: new BorderRadius.circular(10.0)),
+                borderRadius: BorderRadius.circular(10.0)),
             width: 300.0,
             height: 200.0,
             alignment: AlignmentDirectional.center,
-            child: new Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Center(
-                  child: new SizedBox(
+                Center(
+                  child: SizedBox(
                       height: 50.0,
                       width: 50.0,
                       child: LoadingJumpingLine.square(
@@ -196,12 +198,12 @@ class _LoginFormState extends State<LoginPage> {
                         duration: Duration(microseconds: 500),
                       )),
                 ),
-                new Container(
+                Container(
                   margin: const EdgeInsets.only(top: 25.0),
-                  child: new Center(
-                    child: new Text(
+                  child: Center(
+                    child: Text(
                       "loading.. wait...",
-                      style: new TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
@@ -219,34 +221,34 @@ class _LoginFormState extends State<LoginPage> {
     //     setState(() {
     //       _loading = true;
     //     });
-    //     APIService apiService = new APIService();
+    //     APIService apiService =  APIService();
     //     var result =
     //         await apiService.login(idcontroller.text, passcontroller.text);
     //     if (result) {
 
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => Ticket()));
-    }
-
-    void register() async {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => RegisterPage()));
-    }
-    //   else
-    //     _scaffoldKey.currentState.showSnackBar(SnackBar(
-    //       content: Text(apiService.message),
-    //     ));
-    // }
-    // } catch (e) {
-    //   _scaffoldKey.currentState.showSnackBar(SnackBar(
-    //     content: Text(e),
-    //   ));
-    // } finally {
-    //   setState(() {
-    //     _loading = false;
-    //   });
-    // }
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => TicketInfoPage()));
   }
+
+  void register() async {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => RegisterPage()));
+  }
+  //   else
+  //     _scaffoldKey.currentState.showSnackBar(SnackBar(
+  //       content: Text(apiService.message),
+  //     ));
+  // }
+  // } catch (e) {
+  //   _scaffoldKey.currentState.showSnackBar(SnackBar(
+  //     content: Text(e),
+  //   ));
+  // } finally {
+  //   setState(() {
+  //     _loading = false;
+  //   });
+  // }
+}
 
 //   void register() async {
 //         Navigator.pushReplacement(

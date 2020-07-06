@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 class CustomStyle {
   CustomStyle(Material createbutton);
 
-  static Material createbutton(
-      {String title,
-      Color color,
-      Color shadowColor,
-      Color textColor,
-      Function function,
-      double width, Future<Null> Function() onPressed, Text textSize, int fontSize}) {
-    return new Material(
+  static Material createbutton({
+    String title,
+    Color color,
+    Color shadowColor,
+    Color textColor,
+    Function function,
+    double width,
+    Future<void> Function() onPressed,
+    Text textSize,
+    int fontSize,
+  }) {
+    return Material(
       borderRadius: BorderRadius.circular(10.0),
       color: color,
       shadowColor: shadowColor,
@@ -30,7 +34,7 @@ class CustomStyle {
 
   static TextStyle setTextStyle(
       {Color color, FontStyle fontstyle, double size, String fontFamily}) {
-    return new TextStyle(
+    return TextStyle(
         color: color,
         fontStyle: fontstyle,
         fontSize: size,
@@ -38,7 +42,7 @@ class CustomStyle {
   }
 
   static TextStyle setTextDefaultStyle() {
-    return new TextStyle(
+    return TextStyle(
         color: Colors.white, fontStyle: FontStyle.normal, fontFamily: '');
   }
 }

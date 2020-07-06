@@ -5,12 +5,12 @@ import 'package:intl/intl.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:image_picker/image_picker.dart';
 
-class PaymentPage extends StatefulWidget {
+class PaymentInfoPage extends StatefulWidget {
   @override
   _PaymentPageState createState() => _PaymentPageState();
 }
 
-class _PaymentPageState extends State<PaymentPage> {
+class _PaymentPageState extends State<PaymentInfoPage> {
   final format = DateFormat("dd-MM-yyyy");
   final formatt = DateFormat("HH:mm");
   DateTime dateTime;
@@ -87,7 +87,7 @@ class _PaymentPageState extends State<PaymentPage> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             contentPadding:
-                new EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
           ),
           format: format,
           onShowPicker: (context, currentValue) {
@@ -113,7 +113,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
 
             contentPadding:
-                new EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
           ),
           format: formatt,
           onShowPicker: (context, currentValue) async {
@@ -135,16 +135,16 @@ class _PaymentPageState extends State<PaymentPage> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 contentPadding:
-                    new EdgeInsets.symmetric(vertical: 0.0, horizontal: 5.0),
+                    EdgeInsets.symmetric(vertical: 0.0, horizontal: 5.0),
               ),
               child: SearchableDropdown.single(
                 hint: Text('โอนจากธนาคาร'),
                 style: TextStyle(fontSize: 11.0),
                 value: currenSlectedValue,
                 searchHint: "โอนจากธนาคาร",
-                onChanged: (newvalue) {
+                onChanged: (value) {
                   setState(() {
-                    currenSlectedValue = newvalue;
+                    currenSlectedValue = value;
                   });
                 },
                 dialogBox: false,
@@ -168,16 +168,16 @@ class _PaymentPageState extends State<PaymentPage> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 contentPadding:
-                    new EdgeInsets.symmetric(vertical: 0.0, horizontal: 5.0),
+                    EdgeInsets.symmetric(vertical: 0.0, horizontal: 5.0),
               ),
               child: SearchableDropdown.single(
                 hint: Text('โอนไปยัง'),
                 style: TextStyle(fontSize: 11.0),
                 value: currenSlectedValue,
                 searchHint: "โอนไปยัง",
-                onChanged: (newvalue) {
+                onChanged: (value) {
                   setState(() {
-                    currenSlectedValue = newvalue;
+                    currenSlectedValue = value;
                   });
                 },
                 dialogBox: false,

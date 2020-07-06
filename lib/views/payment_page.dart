@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:vapee/payment.dart';
+import 'package:vapee/views/payment_info_page.dart';
 import 'package:vapee/static/customstyle.dart';
 
-class DataPayment extends StatefulWidget {
+class PaymentPage extends StatefulWidget {
   @override
   _DataPaymentPageState createState() => _DataPaymentPageState();
 }
 
-class _DataPaymentPageState extends State<DataPayment> {
+class _DataPaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,9 +106,8 @@ class _DataPaymentPageState extends State<DataPayment> {
 
   void add() async {
     Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => PaymentPage()));
-    }
+        context, MaterialPageRoute(builder: (_) => PaymentInfoPage()));
   }
+}
 
-  void cancel() {}
-
+void cancel() {}

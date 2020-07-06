@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:vapee/main.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:vapee/payment.dart';
+import 'package:vapee/views/home_page.dart';
+import 'package:vapee/views/payment_info_page.dart';
 
-class Ticket extends StatefulWidget {
+class TicketInfoPage extends StatefulWidget {
   @override
   _TicketPageState createState() => _TicketPageState();
 }
 
-class _TicketPageState extends State<Ticket> {
+class _TicketPageState extends State<TicketInfoPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   var title = '';
-  int _currentIndex = 0;
+  // int _currentIndex = 0;
 
   final items = [
     "ไทยพาณิชย์ (SCB)",
@@ -28,43 +27,45 @@ class _TicketPageState extends State<Ticket> {
 
   var selectedValue;
   Drawer drawer(context) {
-    return new Drawer(
-        child: new ListView(padding: EdgeInsets.zero, children: <Widget>[
-      new DrawerHeader(
-        child: new Container(
-          child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                // new Image.asset('',
-                // width: 80.0,
-                // height: 80.0,),
-                new Text('')
-              ]),
+    return Drawer(
+        child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+      DrawerHeader(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              //  Image.asset('',
+              // width: 80.0,
+              // height: 80.0,),
+              Text('')
+            ],
+          ),
         ),
         decoration:
-            new BoxDecoration(color: Colors.blue, shape: BoxShape.rectangle),
+            BoxDecoration(color: Colors.blue, shape: BoxShape.rectangle),
       ),
-      new ListTile(
-          leading: new Image.asset(
+      ListTile(
+          leading: Image.asset(
             'image/homes.png',
             height: 20.0,
             width: 20.0,
           ),
-          title: new Text(
+          title: Text(
             "Home",
             style: TextStyle(fontSize: 11.0, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) => MyApp()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => HomePage()));
           }),
-      new ListTile(
-        leading: new Image.asset(
+      ListTile(
+        leading: Image.asset(
           'image/buy.png',
           height: 20.0,
           width: 20.0,
         ),
-        title: new Text(
+        title: Text(
           "Panymant",
           style: TextStyle(
             fontSize: 11.0,
@@ -72,28 +73,28 @@ class _TicketPageState extends State<Ticket> {
           ),
         ),
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => PaymentPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => PaymentInfoPage()));
         },
       ),
-      new ListTile(
-        leading: new Image.asset(
+      ListTile(
+        leading: Image.asset(
           'image/busmap.png',
           height: 20.0,
           width: 20.0,
         ),
-        title: new Text(
+        title: Text(
           "Bus Tracking",
           style: TextStyle(fontSize: 11.0, fontWeight: FontWeight.bold),
         ),
       ),
-      new ListTile(
-        leading: new Image.asset(
+      ListTile(
+        leading: Image.asset(
           'image/tracking.png',
           height: 20.0,
           width: 20.0,
         ),
-        title: new Text(
+        title: Text(
           "Package Tracking",
           style: TextStyle(fontSize: 11.0, fontWeight: FontWeight.bold),
         ),
@@ -104,30 +105,23 @@ class _TicketPageState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          backgroundColor: Colors.yellow[300],
-          title: Text('Register'),
-        ),
-        body: Center(
-            child: ListView(
-          children: <Widget>[
-            _buildNoElevation(),
-          ],
-        )),
-        
-        bottomNavigationBar: BottomAppBar(
-          child:
-           
-          ),
-        
-        );
+      key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Colors.yellow[300],
+        title: Text('Register'),
+      ),
+      body: Center(
+          child: ListView(
+        children: <Widget>[
+          _buildNoElevation(),
+        ],
+      )),
+    );
   }
 
   Widget _buildNoElevation() {
     return Column(children: <Widget>[
-    Padding(padding: EdgeInsets.zero),
-     
+      Padding(padding: EdgeInsets.zero),
       SizedBox(
         height: 8.0,
       ),
@@ -141,7 +135,7 @@ class _TicketPageState extends State<Ticket> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 contentPadding:
-                    new EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+                    EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
               ),
               child: SearchableDropdown.single(
                 value: selectedValue,
